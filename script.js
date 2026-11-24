@@ -17,7 +17,7 @@ const render=(popN)=>{
   cells.forEach(c=>{const n=+c.dataset.n,on=drawn.includes(n);c.classList.toggle('on',on);c.classList.toggle('last',n===drawn[drawn.length-1]);c.setAttribute('aria-pressed',on)});
   const last=drawn[drawn.length-1];
   big.textContent=last??'--';big.classList.toggle('empty',!last);
-  if(popN){big.classList.remove('pop');void big.offsetWidth;big.classList.add('pop')}
+  if(popN){big.classList.remove('pop');void big.offsetWidth;big.classList.add('pop');const bb=document.getElementById('bball');bb.classList.remove('spin');void bb.getBoundingClientRect();bb.classList.add('spin')}
   prev.innerHTML=drawn.slice(-6,-1).reverse().map(n=>`<span>${n}</span>`).join('');
   count.textContent=drawn.length;left.textContent=100-drawn.length;
 };
